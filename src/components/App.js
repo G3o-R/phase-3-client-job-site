@@ -1,6 +1,8 @@
 import '../styles/App.scss';
 import { useState, useEffect } from 'react';
 
+import Companies from './Companies';
+
 function App() {
   const [companyData, setCompanyData] = useState([])
   useEffect(()=>{
@@ -9,10 +11,9 @@ function App() {
     .then(companyInfo=>setCompanyData(companyInfo))
   },[])
 
-  console.log(companyData)
   return (
     <div className="App">
-  
+      <Companies companyData={companyData}/>
     </div>
   );
 }
