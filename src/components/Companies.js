@@ -9,10 +9,13 @@ function Companies(companyData){
     const companiesToDisplay = companies.map((company)=>
         <div key={company.id}>
             {/* <h1 className="companyName">{company.company_name}</h1> */}
-            {company.jobs.map((job)=> <>
-            <h4 key={job.id}>{job.position}</h4>
-            <p>{company.company_name}</p>
-            </>)}
+            {company.jobs.map((job)=> <div key={job.id}>
+            <h4 className="job-position">{job.position}</h4>
+            <p className="company-name">{company.company_name}</p>
+            <p className="address">{job.location}</p>
+            <p className="salary">${job.pay}/hr</p>
+            <h5>{job.job_description}</h5>
+            </div>)}
         </div>
     )
 
