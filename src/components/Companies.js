@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/Companies.scss"
 
 function Companies(companyData){
     // console.log((companyData))
@@ -7,9 +8,9 @@ function Companies(companyData){
     // const companies = Object.entries(companyData)[0][1]
     const companies = Object.values(companyData)[0]
     const companiesToDisplay = companies.map((company)=>
-        <div key={company.id}>
+        <div >
             {/* <h1 className="companyName">{company.company_name}</h1> */}
-            {company.jobs.map((job)=> <div key={job.id}>
+            {company.jobs.map((job)=> <div key={job.id} className="company-card">
             <h4 className="job-position">{job.position}</h4>
             <p className="company-name">{company.company_name}</p>
             <p className="address">{job.location}</p>
