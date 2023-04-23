@@ -8,8 +8,11 @@ function Companies(companyData){
     const companies = Object.values(companyData)[0]
     const companiesToDisplay = companies.map((company)=>
         <div key={company.id}>
-            <h1 className="companyName">{company.company_name}</h1>
-            {company.jobs.map((job)=> <p key={job.id}>{job.position}</p>)}
+            {/* <h1 className="companyName">{company.company_name}</h1> */}
+            {company.jobs.map((job)=> <>
+            <h4 key={job.id}>{job.position}</h4>
+            <p>{company.company_name}</p>
+            </>)}
         </div>
     )
 
