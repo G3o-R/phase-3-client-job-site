@@ -8,19 +8,15 @@ function Companies(companyData){
     // const companies = Object.entries(companyData)[0][1]
     const companies = Object.values(companyData)[0]
     const companiesToDisplay = companies.map((company)=>
-        <div >
-            {/* <h1 className="companyName">{company.company_name}</h1> */}
-            {company.jobs.map((job)=> <div key={job.id} className="company-card">
-            <h4 className="job-position">{job.position}</h4>
-            <p className="company-name">{company.company_name}</p>
-            <p className="address">{job.location}</p>
-            <p className="salary">${job.pay}/hr</p>
-            <h5>{job.job_description}</h5>
-            </div>)}
+    // console.log(company.logo_url)
+        <div className="company-card">
+                {/* display companies here */}
+                <img src={company.logo_url} alt="company logo" className="logo-image"/>
+
         </div>
     )
 
-    return(<div>
+    return(<div className="company-grid">
         {companiesToDisplay}
 
     </div>)
