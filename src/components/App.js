@@ -1,9 +1,10 @@
 import '../styles/App.scss';
 // import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes,Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes,Route, NavLink} from 'react-router-dom';
 
 // import Companies from './Companies';
 import Home from './Home';
+import NavBar from './NavBar';
 
 function App() {
   // const [companyData, setCompanyData] = useState([])
@@ -16,10 +17,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <NavBar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home/>} />
         </Routes>
       </BrowserRouter>
+
     </div>
   );
 }
