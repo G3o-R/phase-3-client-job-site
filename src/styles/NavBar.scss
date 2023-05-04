@@ -1,3 +1,9 @@
-.link{
-    text-decoration: none;
+.navbar{
+    display: flex;
+    justify-content: center;
+    // max-width: 20vw;
+    .link{
+        text-decoration: none;
+        padding-left: 20px;
+    }
 }
