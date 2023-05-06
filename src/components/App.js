@@ -1,6 +1,7 @@
 import '../styles/App.scss';
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes,Route} from 'react-router-dom';
+import AddNewCompanyForm from "./AddNewCompanyForm"
 
 // import Companies from './Companies';
 import Home from './Home';
@@ -20,7 +21,7 @@ function App() {
       <NavBar />
         <Routes>
           <Route path="/" element={<Home companyData={companyData}/>} />
-          {/* <Route path="/create-company" element={<AddNewCompanyForm/>} /> */}
+          <Route path="/create-company" element={<AddNewCompanyForm/>} />
           {/* <Route path="/create-job" element={<AddNewJobForm/>} /> */}
         </Routes>
       </BrowserRouter>
