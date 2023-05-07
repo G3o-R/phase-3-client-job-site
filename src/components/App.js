@@ -16,16 +16,16 @@ function App() {
   },[])
 
   const company = companyData.map((company)=>company)
-  // console.log(company)
-  const companyRoutes = companyData
+  const companyRoutes = company.map((company)=>(<Route path={"/" + company.company_name} key={company.id} element={<CompanyContent companyData={company}/>} />))
+// how do I render company
 
   return (
     <div className="App">
       <BrowserRouter>
       <NavBar companies={companyData}/>
         <Routes>
-          <Route path="/" element={<CompanyContent companyData={companyData}/>} />
-          {/* {companyRoutes} */}
+          {/* <Route path="/" element={<CompanyContent companyData={companyData} />} /> */}
+          {companyRoutes}
           <Route path="/create-company-job" element={<AddNewCompanyJobForm/>} />
         </Routes>
       </BrowserRouter>
