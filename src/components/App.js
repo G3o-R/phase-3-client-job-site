@@ -18,11 +18,10 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <NavBar />
+      <NavBar companies={companyData}/>
         <Routes>
           <Route path="/" element={<Home companyData={companyData}/>} />
-          <Route path="/create-company" element={<AddNewCompanyForm/>} />
-          {/* <Route path="/create-job" element={<AddNewJobForm/>} /> */}
+          <Route path="/create-company-job" element={<AddNewCompanyForm/>} />
         </Routes>
       </BrowserRouter>
 

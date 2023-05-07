@@ -1,8 +1,6 @@
 import "../styles/Home.scss"
 
 function Home({companyData}){
-    // const jobs = companyData.map((company)=>company.jobs.map((job)=>job.position))
-    // console.log(companyData.map((company)=>company.jobs.map((job)=>job)))
     const jobsToDisplay = companyData.map((company)=>(
         company.jobs.map((job)=>
         <div className="job-card" key={job.id}>
