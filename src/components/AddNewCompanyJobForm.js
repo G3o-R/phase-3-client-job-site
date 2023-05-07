@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function AddNewCompanyForm({handleNewCompany}){
+function AddNewCompanyJobForm({handleNewCompany, handleNewJob}){
     const [formData, setFormData] = useState({
         company_name: "",
         logo_url: ""
@@ -28,4 +28,4 @@ function AddNewCompanyForm({handleNewCompany}){
     </div>)
 }
 
-export default AddNewCompanyForm
+export default AddNewCompanyJobForm

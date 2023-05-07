@@ -1,11 +1,11 @@
 import '../styles/App.scss';
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes,Route} from 'react-router-dom';
-import AddNewCompanyForm from "./AddNewCompanyForm"
+import AddNewCompanyJobForm from "./AddNewCompanyJobForm"
 
 // import Companies from './Companies';
-import Home from './Home';
 import NavBar from './NavBar';
+import CompanyContent from './CompanyContent';
 
 function App() {
   const [companyData, setCompanyData] = useState([])
@@ -15,13 +15,18 @@ function App() {
     .then(companyInfo=>setCompanyData(companyInfo))
   },[])
 
+  const company = companyData.map((company)=>company)
+  // console.log(company)
+  const companyRoutes = companyData
+
   return (
     <div className="App">
       <BrowserRouter>
       <NavBar companies={companyData}/>
         <Routes>
-          <Route path="/" element={<Home companyData={companyData}/>} />
-          <Route path="/create-company-job" element={<AddNewCompanyForm/>} />
+          <Route path="/" element={<CompanyContent companyData={companyData}/>} />
+          {/* {companyRoutes} */}
+          <Route path="/create-company-job" element={<AddNewCompanyJobForm/>} />
         </Routes>
       </BrowserRouter>
 

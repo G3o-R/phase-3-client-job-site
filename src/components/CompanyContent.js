@@ -1,6 +1,6 @@
 import "../styles/Home.scss"
 
-function Home({companyData}){
+function CompanyContent({companyData}){
     const jobsToDisplay = companyData.map((company)=>(
         company.jobs.map((job)=>
         <div className="job-card" key={job.id}>
@@ -14,7 +14,7 @@ function Home({companyData}){
     ))
 
     return(
-        <div className="home">
+        <div className="company-content">
             <div className="job-content">
             {jobsToDisplay}
             </div>
@@ -22,4 +22,4 @@ function Home({companyData}){
     )
 }
 
-export default Home
+export default CompanyContent

@@ -9,11 +9,11 @@
         align-items: center;
         border-radius: 50px 50px 50px 50px;
         height: 40px;
-        width: 20vw;
-
+        width: fit-content;
         .link{
             text-decoration: none;
-            padding-left: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
         }
     }
 }
