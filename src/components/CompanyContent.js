@@ -1,6 +1,7 @@
-import "../styles/Home.scss"
+import "../styles/CompanyContent.scss"
 
 function CompanyContent({companyData}){
+    console.log(companyData)
 
     /*
     is there a way to "combine" company content and home? Home takes in a collection of objects while CompanyContent takes a single object
@@ -16,13 +17,14 @@ function CompanyContent({companyData}){
             </div>
         </div>)
 
-    return(
+    return(<>
+        <img src={companyData.logo_url} className="company-logo" alt="Company logo" />
         <div className="company-content">
-            <img src={companyData.logo_url} className="company-logo" alt="Company logo" />
             <div className="job-content">
             {jobsToDisplay}
             </div>
         </div>
+    </>
     )
 }
 

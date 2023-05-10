@@ -16,8 +16,8 @@ function App() {
     .then(companyInfo=>setCompanyData(companyInfo))
   },[])
 
-  const company = companyData.map((company)=>company)
-  const companyRoutes = company.map((company)=>(<Route path={"/" + company.company_name} key={company.id} element={<CompanyContent companyData={company}/>} />))
+  // const company = companyData.map((company)=>company)
+  const companyRoutes = companyData.map((company)=>(<Route path={"/" + company.company_name} key={company.id} element={<CompanyContent companyData={company}/>} />))
 // how do I render company
 
   return (
@@ -27,7 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home companyData={companyData} />} />
           {companyRoutes}
-          <Route path="/create-company-job" element={<AddNewCompanyJobForm/>} />
+          <Route path="/create-company-job" element={<AddNewCompanyJobForm companies={companyData}/>} />
         </Routes>
       </BrowserRouter>
 
