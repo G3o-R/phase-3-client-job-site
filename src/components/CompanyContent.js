@@ -1,7 +1,7 @@
 import "../styles/CompanyContent.scss"
 
 function CompanyContent({companyData}){
-    console.log(companyData)
+    // console.log(companyData)
 
     /*
     is there a way to "combine" company content and home? Home takes in a collection of objects while CompanyContent takes a single object
