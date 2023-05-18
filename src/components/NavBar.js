@@ -1,15 +1,16 @@
 import "../styles/NavBar.scss"
 import { NavLink } from "react-router-dom"
 
-function NavBar({companies}){
-    // console.log(companies)
-    let companyNames = companies.map((company)=>company.company_name)
-    const companyLinks = companyNames.map((companyName)=>(<NavLink to={"/" + companyName} key={companyName} className="link">{companyName}</NavLink>))
+function NavBar({companyLinks}){
+    // console.log(companyLinks)
+    // let companyNames = companyLinks.map((company)=>[company.company_name, company.id])
+    // ALL I NEED IS THE NAME AND MAYBE THE ID
+    const links = companyLinks.map((company)=>(<NavLink to={"/" + company.company_name} key={company.id} className="link">{company.company_name}</NavLink>))
     return(
         <div className="header">
             <div className="navbar">
                 <NavLink to="/" className="link">Home</NavLink>
-                {companyLinks}
+                {links}
                 <NavLink to="/create-company-job" className="link">Create Company/Job</NavLink>
             </div>
         </div>

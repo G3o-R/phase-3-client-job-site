@@ -1,7 +1,8 @@
 import { useState } from "react"
 import "../styles/AddNewCompanyJobForm.scss"
 
-function AddNewCompanyJobForm({handleNewCompany, handleNewJob, companies}){
+function AddNewCompanyJobForm({companies, handleNewCompany, handleNewJob}){
+    // debugger
     const [companyFormData, setCompanyFormData] = useState({
         company_name: "",
         logo_url: ""
@@ -19,7 +20,7 @@ function AddNewCompanyJobForm({handleNewCompany, handleNewJob, companies}){
         job_description: "",
         pay: "",
         location: "",
-        company_id: ""
+        company_id: 3
     })
 
     const {position, job_description, pay, location, company_id} = jobFormData
@@ -28,13 +29,15 @@ function AddNewCompanyJobForm({handleNewCompany, handleNewJob, companies}){
     function handleJobChange(e){
         let name = e.target.name
         let value = e.target.value
+        console.log(jobFormData)
         setJobFormData({...jobFormData, [name]:value})
     }
 
     let companyOptions = companies.map((company)=>(
         <option value={company.id} key={company.id}>{company.company_name}</option>
     ))
-
+// why do I get a 500 server error when I post?
+// SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
     function handleNewCompanySubmit(e){
         e.preventDefault()
         fetch("http://localhost:9292/companies",{
@@ -44,11 +47,14 @@ function AddNewCompanyJobForm({handleNewCompany, handleNewJob, companies}){
         })
         .then(res=>res.json())
         .then((newCompany)=>handleNewCompany(newCompany))
+        // console.log(newCompany)
         setCompanyFormData({
             company_name: "",
             logo_url: ""
         })
     }
+
+
 
     function handleNewJobSubmit(e){
         e.preventDefault()
@@ -59,13 +65,14 @@ function AddNewCompanyJobForm({handleNewCompany, handleNewJob, companies}){
         })
         .then(res=>res.json())
         .then((newJob)=>handleNewJob(newJob))
-        setJobFormData({
-            position: "",
-            job_description: "",
-            pay: "",
-            location: "",
-            company_id: ""
-        })
+        // setJobFormData({
+        //     position: "",
+        //     job_description: "",
+        //     pay: "",
+        //     location: "",
+        //     company_id: ""
+        // })
+        // handleNewJob(jobFormData)
     }
 
     return(
