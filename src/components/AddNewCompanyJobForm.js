@@ -5,16 +5,17 @@ function AddNewCompanyJobForm({companies, handleNewCompany, handleNewJob}){
     // debugger
     const [companyFormData, setCompanyFormData] = useState({
         company_name: "",
-        logo_url: ""
+        logo_url: "",
+        jobs : []
     })
-    const {company_name, logo_url} = companyFormData
+    const {company_name, logo_url, jobs} = companyFormData
 
     function handleCompanyChange(e){
+        console.log(companyFormData)
         let name = e.target.name
         let value = e.target.value
         setCompanyFormData({...companyFormData, [name]:value})
     }
-
     const [jobFormData, setJobFormData] = useState({
         position: "",
         job_description: "",
@@ -22,8 +23,8 @@ function AddNewCompanyJobForm({companies, handleNewCompany, handleNewJob}){
         location: "",
         company_id: 3
     })
+    const {position, job_description, pay, location, company_id = companies[0].id} = jobFormData
 
-    const {position, job_description, pay, location, company_id} = jobFormData
 
 
     function handleJobChange(e){
@@ -36,21 +37,19 @@ function AddNewCompanyJobForm({companies, handleNewCompany, handleNewJob}){
     let companyOptions = companies.map((company)=>(
         <option value={company.id} key={company.id}>{company.company_name}</option>
     ))
-// why do I get a 500 server error when I post?
-// SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
     function handleNewCompanySubmit(e){
+        // debugger
         e.preventDefault()
         fetch("http://localhost:9292/companies",{
             method: "POST",
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify(companyFormData)
         })
-        .then(res=>res.json())
-        .then((newCompany)=>handleNewCompany(newCompany))
-        // console.log(newCompany)
+        .then((res)=>(res.json()))
+        .then((newCompany)=>(handleNewCompany(newCompany)))
         setCompanyFormData({
             company_name: "",
-            logo_url: ""
+            logo_url: "",
         })
     }
 

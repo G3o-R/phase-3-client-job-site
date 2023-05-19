@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes,Route} from 'react-router-dom';
 import AddNewCompanyJobForm from "./AddNewCompanyJobForm";
 import Home from "./Home";
-
-// import Companies from './Companies';
 import NavBar from './NavBar';
 import CompanyContent from './CompanyContent';
 
@@ -17,23 +15,21 @@ function App() {
       setCompanyData(companyInfo)
     })
   },[])
-  // console.log(companyData)
 
   function addNewCompany(newCompany){
     setCompanyData([...companyData,newCompany])
+    // debugger
   }
-  // const testCompanyObj = {
-  //   company_name: "Block Buster",
-  //   logo_url: "null",
-  //   jobs: []
-  // }
+  console.log(companyData)
+
 
   function handleNewJob(newJob){
     const companies = [...companyData]
-    const i = companyData.findIndex((company) => company.id == newJob.company_id)
+    const i = companyData.findIndex((company) => company.id === newJob.company_id)
     const updatedJobsArray = ([...companyData[i].jobs, newJob])
     companies[i].jobs = updatedJobsArray
     setCompanyData(companies)
+    // debugger
 
 
     /*
