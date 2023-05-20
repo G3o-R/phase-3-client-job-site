@@ -30,7 +30,12 @@ function App() {
     setCompanyData(companies)
   }
 
-  const companyRoutes = companyData.map((company)=>(<Route path={"/" + company.company_name} key={company.id} element={<CompanyContent company={company}/>} />))
+  function handleDeleteCompany(companyId){
+    setCompanyData(()=>companyData.filter((company)=>company.id !== companyId))
+
+  }
+
+  const companyRoutes = companyData.map((company)=>(<Route path={"/" + company.company_name} key={company.id} element={<CompanyContent company={company} handleDeleteCompany={handleDeleteCompany}/>} />))
 
   return (
     <div className="App">
