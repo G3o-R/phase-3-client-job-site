@@ -6,14 +6,6 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 20px;
-        .job-card{
-        border: 1px solid black;
-        border-radius: 30px 30px 30px 30px;
-        max-width: 25em;
-        align-items: center;
-        .content{
-            padding-left: 15px;
-        }
-        }
+        
     }
 }

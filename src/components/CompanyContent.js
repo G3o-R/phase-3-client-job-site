@@ -1,30 +1,20 @@
 import "../styles/CompanyContent.scss"
+import JobCard from "./JobCard"
 
-function CompanyContent({companyData}){
-    console.log(companyData)
+function CompanyContent({company}){
+    console.log(company)
     
     /*
     is there a way to "combine" company content and home? Home takes in a collection of objects while CompanyContent takes a single object
     */
-const display = companyData.jobs ?
-    // const jobsToDisplay = 
-    companyData.jobs.map((job)=>
-        <div className="job-card" key={job.id}>
-            <div className="content">
-            <h4 className="job-description">{job.position}</h4>
-            <p className="company-name">{companyData.company_name}</p>
-            <p className="location">{job.location}</p>
-            <p className="job-description">{job.job_description}</p>
-            </div>
-        </div>) : null
+    const jobsToDisplay = 
+    company.jobs.map((job)=> <JobCard job={job} company={company.company_name}/>)
 
-    // debugger
 return(<>
-        <img src={companyData.logo_url} className="company-logo" alt="Company logo" />
+        <img src={company.logo_url} className="company-logo" alt="Company logo" />
         <div className="company-content">
             <div className="job-content">
-            {/* {jobsToDisplay} */}
-            {display}
+            {jobsToDisplay}
             </div>
         </div>
     </>

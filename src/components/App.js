@@ -18,33 +18,19 @@ function App() {
 
   function addNewCompany(newCompany){
     setCompanyData([...companyData,newCompany])
-    // debugger
   }
-  console.log(companyData)
 
 
   function handleNewJob(newJob){
     const companies = [...companyData]
     const i = companyData.findIndex((company) => company.id === newJob.company_id)
     const updatedJobsArray = ([...companyData[i].jobs, newJob])
+    debugger
     companies[i].jobs = updatedJobsArray
     setCompanyData(companies)
-    // debugger
-
-
-    /*
-    this component should update the individual company
-    it should update the jobs specifically I should add
-    const companyJobsToUpdate = companyData.filter((company)=> company.id === newJob.company_id)
-    const companyJobs = companyJobsToUpdate.jobs
-    const update jobList = [...companyJobs, newJob]
-    *** from here i have to update the given individual company in my companyData collection and update state
-    " const updatedCompanies = something???"
-    setCompanyData(updatedCompanies)
-    */
   }
 
-  const companyRoutes = companyData.map((company)=>(<Route path={"/" + company.company_name} key={company.id} element={<CompanyContent companyData={company}/>} />))
+  const companyRoutes = companyData.map((company)=>(<Route path={"/" + company.company_name} key={company.id} element={<CompanyContent company={company}/>} />))
 
   return (
     <div className="App">

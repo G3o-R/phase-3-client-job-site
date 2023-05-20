@@ -1,17 +1,9 @@
 import "../styles/Home.scss"
+import JobCard from "./JobCard"
 
 function Home({companyData}){
-    // console.log(companyData)
         const jobsToDisplay = companyData.map((company)=>(
-        company.jobs.map((job)=>
-        <div className="job-card" key={job.id}>
-            <div className="content">
-            <h4 className="job-description">{job.position}</h4>
-            <p className="company-name">{company.company_name}</p>
-            <p className="location">{job.location}</p>
-            <p className="job-description">{job.job_description}</p>
-            </div>
-        </div>)
+        company.jobs.map((job)=> <JobCard job={job} company={company.company_name} key={job.id}/>)
     ))
     return(
         <div className="company-content">

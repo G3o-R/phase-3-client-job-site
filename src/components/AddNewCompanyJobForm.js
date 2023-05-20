@@ -2,13 +2,12 @@ import { useState } from "react"
 import "../styles/AddNewCompanyJobForm.scss"
 
 function AddNewCompanyJobForm({companies, handleNewCompany, handleNewJob}){
-    // debugger
     const [companyFormData, setCompanyFormData] = useState({
         company_name: "",
         logo_url: "",
         jobs : []
     })
-    const {company_name, logo_url, jobs} = companyFormData
+    const {company_name, logo_url} = companyFormData
 
     function handleCompanyChange(e){
         console.log(companyFormData)
@@ -23,14 +22,13 @@ function AddNewCompanyJobForm({companies, handleNewCompany, handleNewJob}){
         location: "",
         company_id: 3
     })
-    const {position, job_description, pay, location, company_id = companies[0].id} = jobFormData
+    const {position, job_description, pay, location, company_id} = jobFormData
 
 
 
     function handleJobChange(e){
         let name = e.target.name
         let value = e.target.value
-        console.log(jobFormData)
         setJobFormData({...jobFormData, [name]:value})
     }
 
@@ -38,7 +36,6 @@ function AddNewCompanyJobForm({companies, handleNewCompany, handleNewJob}){
         <option value={company.id} key={company.id}>{company.company_name}</option>
     ))
     function handleNewCompanySubmit(e){
-        // debugger
         e.preventDefault()
         fetch("http://localhost:9292/companies",{
             method: "POST",
@@ -57,6 +54,15 @@ function AddNewCompanyJobForm({companies, handleNewCompany, handleNewJob}){
 
     function handleNewJobSubmit(e){
         e.preventDefault()
+        // if (company_id === ""){
+        //     setJobFormData({
+        //         position: position,
+        //         job_description: job_description,
+        //         pay: pay,
+        //         location: location,
+        //         company_id: companies[0].id
+        //     })
+        // }else{ return jobFormData}
         fetch("http://localhost:9292/jobs",{
             method: "POST",
             headers: {'Content-Type' : 'application/json'},
@@ -64,14 +70,13 @@ function AddNewCompanyJobForm({companies, handleNewCompany, handleNewJob}){
         })
         .then(res=>res.json())
         .then((newJob)=>handleNewJob(newJob))
-        // setJobFormData({
-        //     position: "",
-        //     job_description: "",
-        //     pay: "",
-        //     location: "",
-        //     company_id: ""
-        // })
-        // handleNewJob(jobFormData)
+        setJobFormData({
+            position: "",
+            job_description: "",
+            pay: "",
+            location: "",
+            company_id: ""
+        })
     }
 
     return(
