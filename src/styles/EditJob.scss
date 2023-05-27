@@ -1,0 +1,10 @@
+.edit-job{
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    width: fit-content;
+    .input{
+        margin-top: .5em;
+        margin-bottom: .5em;
+    }
+}

@@ -25,7 +25,6 @@ function App() {
     const companies = [...companyData]
     const i = companyData.findIndex((company) => company.id === newJob.company_id)
     const updatedJobsArray = ([...companyData[i].jobs, newJob])
-    debugger
     companies[i].jobs = updatedJobsArray
     setCompanyData(companies)
   }
@@ -53,3 +52,5 @@ function App() {
 }
 
 export default App;
+
+
