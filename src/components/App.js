@@ -5,9 +5,12 @@ import AddNewCompanyJobForm from "./AddNewCompanyJobForm";
 import Home from "./Home";
 import NavBar from './NavBar';
 import CompanyContent from './CompanyContent';
+import { useContext } from 'react';
+import { CompanyContext } from './Context/companies';
 
 function App() {
-  const [companyData, setCompanyData] = useState([])
+  // const [companyData, setCompanyData] = useState([])
+  const {companyData, setCompanyData} = useContext(CompanyContext)
   useEffect(()=>{
     fetch("http://localhost:9292/companies")
     .then((res)=>res.json())
