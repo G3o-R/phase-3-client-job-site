@@ -22,23 +22,20 @@ function EditJob({job}){
     }
 
     function deleteJob(deleteJob){
-        // debugger
         const companyDataToUpdate = [...companyData]
-        const companyJobs = companyDataToUpdate.find((company)=>company.id === deleteJob.company_id)
-        const jobToDelete = companyJobs.jobs.filter((job)=>job.id !== deleteJob.id)
-        const updatedCompanyJobsArray = (companyJobs.jobs = jobToDelete)
-        companyDataToUpdate[deleteJob.company_id].jobs = (companyDataToUpdate[deleteJob.company_id].jobs = updatedCompanyJobsArray)  
-        
+        const company = companyDataToUpdate.find((company)=>company.id === deleteJob.company_id)
+        company.jobs = company.jobs.filter((job)=>job.id !== deleteJob.id)        
         setCompanyData(companyDataToUpdate)
     }
 
-    function handleDeleteJobClick(){
+    function handleDeleteJobClick(e){
+        e.preventDefault()
         fetch(`http://localhost:9292/jobs/${job.id}`,{
             method: "DELETE"
         })
-        .then((r) => r.json())
+        // .then((r) => r.json())
         .then(()=> deleteJob(job))
-        // deleteJob(job)
+        deleteJob(job)
         // console.log(job.id)
 
     }
