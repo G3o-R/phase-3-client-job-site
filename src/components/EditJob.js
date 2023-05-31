@@ -40,17 +40,20 @@ function EditJob({job, setEditIsOn, editIsOn}){
     }
 
     function handleUpdate(updatedJob){
-        console.log(updatedJob)
+        // console.log(updatedJob)
+        const companyDataToUpdate = [...companyData]
+        const company = companyDataToUpdate.find((company)=>company.id === updatedJob.company_id)
         if (job.company_id === updatedJob.company_id){
-            const companyDataToUpdate = [...companyData]
-            const company = companyDataToUpdate.find((company)=>company.id === job.id)
             const i = company.jobs.findIndex((job)=>job.id === updatedJob.id)
             company.jobs[i] = updatedJob
-            // console.log(companyDataToUpdate)
+            console.log(companyDataToUpdate)
             setCompanyData(companyDataToUpdate)
-            // debugger
         } else{
-            deleteJob(job)}
+            company.jobs = [...company.jobs, updatedJob]
+            setCompanyData(companyDataToUpdate)
+            deleteJob(job)
+            // debugger
+        }
     }
 
     function handleEditJobSubmit(e){

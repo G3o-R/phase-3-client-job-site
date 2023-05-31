@@ -97,7 +97,7 @@ function AddNewCompanyJobForm({companies, handleNewCompany, handleNewJob}){
         <form onSubmit={handleNewJobSubmit}>
             <input type="text" name="position" value={position} placeholder="position..." onChange={handleJobChange}/>
             <input type="text" name="job_description" value={job_description} placeholder="job description..." onChange={handleJobChange}/>
-            <input type="integer" name="pay" value={pay} placeholder="pay..." onChange={handleJobChange}/>
+            <input type="number" name="pay" value={pay} placeholder="pay..." onChange={handleJobChange}/>
             <input type="text" name="location" value={location} placeholder="location..." onChange={handleJobChange}/>
             <select type="integer" name="company_id" value={company_id} onChange={handleJobChange}>
                 {companyOptions}
