@@ -46,7 +46,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home companyData={companyData} />} />
           {companyRoutes}
-          <Route path="/create-company-job" element={<AddNewCompanyJobForm companies={companyData} handleNewCompany={addNewCompany} handleNewJob={handleNewJob}/>} />
+          {companyData.length > 0 || companyData ===[] ? <Route path="/create-company-job" element={<AddNewCompanyJobForm companies={companyData} handleNewCompany={addNewCompany} handleNewJob={handleNewJob}/>} /> : null}
         </Routes>
       </BrowserRouter>
 

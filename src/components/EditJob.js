@@ -20,7 +20,6 @@ function EditJob({job, setEditIsOn, editIsOn}){
         let name = e.target.name
         let value = e.target.value
         setJobBody({...jobBody, [name]:value})
-        // console.log(jobBody)
     }
     
     function deleteJob(deleteJob){
@@ -40,25 +39,24 @@ function EditJob({job, setEditIsOn, editIsOn}){
     }
 
     function handleUpdate(updatedJob){
-        // console.log(updatedJob)
         const companyDataToUpdate = [...companyData]
         const company = companyDataToUpdate.find((company)=>company.id === updatedJob.company_id)
         if (job.company_id === updatedJob.company_id){
             const i = company.jobs.findIndex((job)=>job.id === updatedJob.id)
             company.jobs[i] = updatedJob
-            console.log(companyDataToUpdate)
             setCompanyData(companyDataToUpdate)
         } else{
             company.jobs = [...company.jobs, updatedJob]
             setCompanyData(companyDataToUpdate)
             deleteJob(job)
-            // debugger
         }
     }
+    console.log(jobBody)
 
     function handleEditJobSubmit(e){
         e.preventDefault()
-        fetch(`http://localhost:9292/jobs/${job.id}`,{
+        fetch(`http://localhost:9292/company/${job.company_id}/jobs/${job.id}`,{
+            
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -71,7 +69,6 @@ function EditJob({job, setEditIsOn, editIsOn}){
     }
 
     const companySelectOptions = companyData.map((company)=>[company.company_name,company.id])
-    // debugger
     return(
         <form className="edit-job" onSubmit={handleEditJobSubmit}>
             <input className="input" type="text" name="position" value={position} placeholder="" onChange={handleJobChange} />

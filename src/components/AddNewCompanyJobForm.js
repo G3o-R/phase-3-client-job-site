@@ -3,6 +3,7 @@ import "../styles/AddNewCompanyJobForm.scss"
 import { useNavigate } from "react-router-dom"
 
 function AddNewCompanyJobForm({companies, handleNewCompany, handleNewJob}){
+    console.log(companies)
     const navigate = useNavigate()
     const [companyFormData, setCompanyFormData] = useState({
         company_name: "",
@@ -17,14 +18,18 @@ function AddNewCompanyJobForm({companies, handleNewCompany, handleNewJob}){
         let value = e.target.value
         setCompanyFormData({...companyFormData, [name]:value})
     }
+    
     const [jobFormData, setJobFormData] = useState({
         position: "",
         job_description: "",
         pay: "",
         location: "",
-        company_id: 3
+        company_id: companies[0].id
     })
+
     const {position, job_description, pay, location, company_id} = jobFormData
+
+    
 
 
 
@@ -57,15 +62,6 @@ function AddNewCompanyJobForm({companies, handleNewCompany, handleNewJob}){
 
     function handleNewJobSubmit(e){
         e.preventDefault()
-        // if (company_id === ""){
-        //     setJobFormData({
-        //         position: position,
-        //         job_description: job_description,
-        //         pay: pay,
-        //         location: location,
-        //         company_id: companies[0].id
-        //     })
-        // }else{ return jobFormData}
         fetch("http://localhost:9292/jobs",{
             method: "POST",
             headers: {'Content-Type' : 'application/json'},
