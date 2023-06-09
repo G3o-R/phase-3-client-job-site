@@ -1,9 +1,7 @@
 import { useState } from "react"
 import "../styles/AddNewCompanyJobForm.scss"
-import { useNavigate } from "react-router-dom"
 
 function AddNewCompanyJobForm({companies, handleNewCompany, handleNewJob}){
-    const navigate = useNavigate()
     const [companyFormData, setCompanyFormData] = useState({
         company_name: "",
         logo_url: "",
@@ -50,7 +48,6 @@ function AddNewCompanyJobForm({companies, handleNewCompany, handleNewJob}){
         })
         .then((res)=>(res.json()))
         .then((newCompany)=>(handleNewCompany(newCompany)))
-        navigate(`/${company_name}`)
         setCompanyFormData({
             company_name: "",
             logo_url: "",

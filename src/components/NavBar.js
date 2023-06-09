@@ -5,8 +5,8 @@ function NavBar(){
     return(
         <div className="header">
             <div className="navbar">
-                <NavLink to="/" className="link">Home</NavLink>
-                <NavLink to={"/company-lists"} className="link">Company Lists</NavLink>
+                <NavLink to="/home" className="link">Home</NavLink>
+                <NavLink to={"/companies"} className="link">Company Lists</NavLink>
                 <NavLink to="/create-company-job" className="link">Create Company/Job</NavLink>
             </div>
         </div>
