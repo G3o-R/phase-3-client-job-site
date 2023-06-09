@@ -51,11 +51,10 @@ function EditJob({job, setEditIsOn, editIsOn}){
             deleteJob(job)
         }
     }
-    console.log(jobBody)
 
     function handleEditJobSubmit(e){
         e.preventDefault()
-        fetch(`http://localhost:9292/company/${job.company_id}/jobs/${job.id}`,{
+        fetch(`http://localhost:9292/jobs/${job.id}`,{
             
             method: "PATCH",
             headers: {

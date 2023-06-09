@@ -1,0 +1,14 @@
+.company-list{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 1em;
+    
+    .company-logo{
+        border: 1px solid black;
+        border-radius: 30px 30px 30px 30px;
+        height:12rem;
+        width: 30vw;
+        margin-left: 10em;
+    }
+}

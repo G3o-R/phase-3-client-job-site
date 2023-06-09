@@ -3,7 +3,6 @@ import "../styles/AddNewCompanyJobForm.scss"
 import { useNavigate } from "react-router-dom"
 
 function AddNewCompanyJobForm({companies, handleNewCompany, handleNewJob}){
-    console.log(companies)
     const navigate = useNavigate()
     const [companyFormData, setCompanyFormData] = useState({
         company_name: "",
