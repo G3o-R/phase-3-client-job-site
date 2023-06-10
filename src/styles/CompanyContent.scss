@@ -1,8 +1,12 @@
-    .company-logo{
-        width: 30vw;
-        // padding-left: 10em;
-    }
-    .delete-btn{
+.company-logo{
+    border: 1px solid black;
+    border-radius: 30px 30px 30px 30px;
+    height:12em;
+    min-width:25em;
+    aspect-ratio: 1/8;
+    margin-left: 10em;
+}
+.delete-btn{
         margin-bottom: 5em;
         background-color: lightblue;
         border-radius: 5px 5px  5px 5px;

@@ -1,71 +1,16 @@
-# Getting Started with Create React App
+# Phase-3-client-job-site
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installation 
+Being this repository is strictly the front end 'NPM install' is all that's required, however in order to access the backend, git clone the [phase-3-sinatra-react-project](https://github.com/G3o-R/phase-3-sinatra-react-project) repository as well.
 
-## Available Scripts
+## General Information
 
-In the project directory, you can run:
+State involving "companyData" is held within companies.js in the Context folder. The reason it's not held in the app is to avoid prop drilling when deleting or editing a job. Excluding when editing or deleting a job, all changes to state are still handled in within the App.js file. Editing and deleting of a job is handled within EditJob.js file.
 
-### `npm start`
+The Home route soley displays every job available. Double clicking on any of the job cards presents a form to allow editing of any given attribute of the job or the opporunity to delete the job entirely. Company Lists route displays the logo of the given company and clicking on the card displays only the jobs associated with that company. Within the nested route of Company Lists lies the "delete company" button at the very bottom. Create Company/Job route allows you to create a company or job. Two forms are available one designated for the Jobs and the other of course for companies.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# phase-3-client-job-site
+* Javascript/React
+* CSS/SASS
+* HTML
